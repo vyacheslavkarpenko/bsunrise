@@ -4,8 +4,9 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       get 'pages/home'
-      resources :tasks
-      resources :users
+      resources :users do
+        resources :tasks
+      end
     end
   end  
   root to: 'api/v1/pages#home'

@@ -16,7 +16,10 @@ class TasksController < ApplicationController
 
   # GET /tasks/new
   def new
-    @task = Task.new
+    @t = Task.new
+    @task = api_v1_user_task_path(current_user.id.to_s, id: @t.id.to_s)
+    #@task = current_user.tasks.new
+    #binding.pry
   end
 
   # GET /tasks/1/edit
