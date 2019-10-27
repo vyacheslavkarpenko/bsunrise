@@ -8,3 +8,6 @@
 
 user = User.new(email: 'slava@gmail.com', password: '123456')
 user.save!
+
+task = user.tasks.new(name: 'Task 1', description: 'descripton 1')
+task.save!
