@@ -15,7 +15,7 @@ module Api
       def new
         @task = [:api, :v1, :user, current_user.tasks.build]
         user_tasks
-        binding.pry
+        # binding.pry
       end
 
       def edit

@@ -13,13 +13,13 @@
   <%#= binding.pry %>
   <p>
     <%= select_tag 'parent_task_id', options_from_collection_for_select(@user_tasks, 'id', 'name'), prompt: task[3].name  %>
-    <%= f.select(:parent_task_id, options_for_select([
+    <%= f.select(:parent_task_id, options_for_select(
 
       
       @user_tasks.map{|i| [i.id.to_s, i.name] }
       
       
-      ])) %>
+      )) %>
 
   </p>
 
