@@ -1,4 +1,35 @@
-<p id="notice"><%= notice %></p>
+<h3>
+  <%= @task.name %>
+</h3>
+<p>
+    <%= @task.description %>
+</p>
+<%= link_to 'Edit', edit_api_v1_user_task_path(current_user, @task) %> |
+<%= link_to 'Back', api_v1_user_tasks_path(current_user.id) %>
 
-<%= link_to 'Edit', edit_task_path(@task) %> |
-<%= link_to 'Back', tasks_path %>
+
+<h3>Subtasks</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @child_task.each do |task| %>
+      <tr>
+        <td><%= task.name %></td>
+        <td><%= task.description %></td>
+        <td><%= link_to 'Show', api_v1_user_task_path(id: task.id) %></td>
+        <td><%= link_to 'Edit', edit_api_v1_user_task_path(user_id: current_user.id, id: task.id) %></td>
+        <td><%= link_to 'Destroy', api_v1_user_task_path(user_id: current_user.id, id: task), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New subtask', new_api_v1_user_task_path(user_id: current_user.id) %>

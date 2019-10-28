@@ -1,18 +1,29 @@
-<%#= binding.pry %>
-<%= form_for task do |f| %>
-  <%# if task.errors.any? %>
-    <div id="error_explanation">
-      <h2><%#= pluralize(task.errors.count, "error") %> prohibited this task from being saved:</h2>
+<%= form_for(task) do |f| %>
 
-      <ul>
-      <%# task.errors.full_messages.each do |message| %>
-        <li><%#= message %></li>
-      <%# end %>
-      </ul>
-    </div>
-  <%# end %>
+  <p>
+    <%= label_tag(:name, 'Name') %>
+    <%= f.text_field :name %>
+  </p>
 
-  <div class="actions">
+  <p>
+    <%= label_tag(:description, 'Description') %>
+    <%= f.text_area :description %>
+  </p>
+  
+  <%#= binding.pry %>
+  <p>
+    <%= select_tag 'parent_task_id', options_from_collection_for_select(@user_tasks, 'id', 'name'), prompt: task[3].name  %>
+    <%= f.select(:parent_task_id, options_for_select([
+
+      
+      @user_tasks.map{|i| [i.id.to_s, i.name] }
+      
+      
+      ])) %>
+
+  </p>
+
+  <p class="actions">
     <%= f.submit %>
-  </div>
+  </p>
 <% end %>
