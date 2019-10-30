@@ -9,18 +9,10 @@
     <%= label_tag(:description, 'Description') %>
     <%= f.text_area :description %>
   </p>
-  
-  <%#= binding.pry %>
+
   <p>
-    <%= select_tag 'parent_task_id', options_from_collection_for_select(@user_tasks, 'id', 'name'), prompt: task[3].name  %>
-    <%= f.select(:parent_task_id, options_for_select(
-
-      
-      @user_tasks.map{|i| [i.id.to_s, i.name] }
-      
-      
-      )) %>
-
+    <%= label_tag(:parent_task_id, 'Select parent task') %>
+    <%= f.select :parent_task_id, @user_tasks.collect { |t| [t.name, t.id]}, @html_options %>
   </p>
 
   <p class="actions">

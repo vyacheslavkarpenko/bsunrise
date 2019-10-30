@@ -15,20 +15,40 @@ module Api
       def new
         @task = [:api, :v1, :user, current_user.tasks.build]
         user_tasks
-        # binding.pry
+        @html_options = { include_blank: true }
+      end
+
+      def new_subtask
+        @select_task = Task.find(params[:parent_task_id])
+        @task = [:api, :v1, :user, current_user.tasks.build]
+        user_tasks
+        @html_options = { selected: @select_task.id } 
       end
 
       def edit
-        @task = [:api, :v1, :user, Task.find(params[:id])]
+        @select_task = Task.find(params[:id])
+        @task = %i[api v1 user].push(@select_task)
         user_tasks
+
+        if @select_task.parent_task_id != nil
+          @html_options = { selected: @select_task } 
+        else
+          @html_options = { include_blank: true }
+        end
       end
 
       def create
-        @task = Task.new(task_params.merge(user_id: params[:user_id], parent_task_id: params[:parent_task_id]))
+        @task = Task.new(task_params.merge(user_id: params[:user_id]))
+
+        if params[:task]['parent_task_id'].present?
+          redirect = api_v1_user_task_path(current_user.id, params[:task]['parent_task_id'] )
+        else
+          redirect = api_v1_user_tasks_path(current_user.id)
+        end
 
         respond_to do |format|
           if @task.save
-            format.html { redirect_to api_v1_user_tasks_path(current_user.id), notice: 'Task was successfully created.' }
+            format.html { redirect_to redirect, notice: 'Task was successfully created.' }
             format.json { render :show, status: :created, location: api_v1_user_tasks_path(current_user.id) }
           else
             format.html { render :new }
@@ -50,10 +70,19 @@ module Api
       end
 
       def destroy
-        @task.destroy
-        respond_to do |format|
-          format.html { redirect_to  api_v1_user_tasks_path(current_user.id), notice: 'Task was successfully destroyed.' }
-          format.json { head :no_content }
+
+        check_subtasks = Task.where(parent_task_id: params[:id].to_s).to_a.count
+        if check_subtasks.zero?
+          @task.destroy
+          respond_to do |format|
+            format.html { redirect_to :back, notice: 'Task was successfully destroyed.' }
+            format.json { head :no_content }
+          end
+        else
+          respond_to do |format|
+            format.html { redirect_to :back, notice: 'Remove subtasks before.' }
+            format.json { render json: {notice: 'Remove subtasks before.'} }
+          end
         end
       end
 

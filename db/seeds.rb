@@ -26,5 +26,12 @@ task1_2 = user.tasks.new(
 )
 task1_2.save!
 
+task1_2_1 = user.tasks.new(
+  name: 'Task 1 2 1',
+  description: 'Task 1 2  1 descripton 1 2 1',
+  parent_task_id: task1_2.id.to_s
+)
+task1_2_1.save!
+
 task2 = user.tasks.new(name: 'Task 2', description: 'Task 2 descripton 2')
 task2.save!
