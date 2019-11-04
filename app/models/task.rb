@@ -4,4 +4,5 @@ class Task
   field :description,     type: String 
   field :parent_task_id,  type: BSON::ObjectId, default: nil
   belongs_to :user
+
 end

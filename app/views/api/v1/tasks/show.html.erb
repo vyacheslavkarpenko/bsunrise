@@ -5,8 +5,8 @@
     <%= @task.description %>
 </p>
 <%= link_to 'Edit', edit_api_v1_user_task_path(current_user, @task) %> |
-<%= link_to 'Back', api_v1_user_tasks_path(current_user.id) %>
-
+<%= link_to 'Back', api_v1_user_tasks_path(current_user.id) %> |
+<%= link_to 'Previous', api_v1_user_task_path(current_user, @parent_id) if @parent_id %>
 
 <h3>Subtasks</h3>
 
