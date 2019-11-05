@@ -12,6 +12,9 @@ user.save!
 task = user.tasks.new(name: 'Task 1', description: 'Task 1 descripton 1')
 task.save!
 
+chat1_task = task.chats.new(text: 'text1')
+chat1_task.save!
+
 task1_1 = user.tasks.new(
   name: 'Task 1 1',
   description: 'Task 1 1 descripton 1 1',

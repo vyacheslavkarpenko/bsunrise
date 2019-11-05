@@ -10,9 +10,9 @@ module Api
       def show
         set_task
         @child_task = Task.where(parent_task_id: @task.id)
-        # binding.pry
         @parent_id = Task.find(params[:id]).parent_task_id 
         @parent_id.present? ? nil : @parent_id
+        @chats = set_task.chats
 
       end
 

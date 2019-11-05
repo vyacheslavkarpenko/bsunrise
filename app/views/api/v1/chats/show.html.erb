@@ -1,0 +1,7 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <%= @chat.text%>
+</p>
+<%= link_to 'Edit', edit_api_v1_user_task_chat_path(current_user, @task_id, @chat) %> |
+<%= link_to 'Back', api_v1_user_task_path(current_user, @task_id) %>

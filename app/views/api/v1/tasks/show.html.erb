@@ -33,3 +33,5 @@
 <br>
 
 <%= link_to 'New subtask', new_subtask_api_v1_user_task_path(user_id: current_user.id, parent_task_id: @task.id) %>
+
+<%= render template: '/api/v1/chats/index'%>

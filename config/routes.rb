@@ -5,7 +5,9 @@ Rails.application.routes.draw do
     namespace :v1 do
       get 'pages/home'
       resources :users do
-        resources :tasks
+        resources :tasks do
+          resources :chats
+        end
       end
     end
   end
