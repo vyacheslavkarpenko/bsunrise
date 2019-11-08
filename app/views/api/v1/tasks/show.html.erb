@@ -1,3 +1,4 @@
+<div class="describe_task">
 <h3>
   <%= @task.name %>
 </h3>
@@ -7,7 +8,9 @@
 <%= link_to 'Edit', edit_api_v1_user_task_path(current_user, @task) %> |
 <%= link_to 'Back', api_v1_user_tasks_path(current_user.id) %> |
 <%= link_to 'Previous', api_v1_user_task_path(current_user, @parent_id) if @parent_id %>
+</div>
 
+<div class="subtasks">
 <h3>Subtasks</h3>
 
 <table>
@@ -33,5 +36,8 @@
 <br>
 
 <%= link_to 'New subtask', new_subtask_api_v1_user_task_path(user_id: current_user.id, parent_task_id: @task.id) %>
+</div>
 
-<%= render template: '/api/v1/chats/index'%>
+<div class="chat">
+  <%= render template: '/api/v1/chats/index'%>
+</div>
