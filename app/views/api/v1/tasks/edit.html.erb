@@ -1,8 +1,8 @@
-<div class = "forms">
-  <h1>Editing Task</h1>
 
-  <%= render 'form', task: @task %>
+<h1>Editing Task</h1>
 
-  <%= link_to 'Show', @task %> |
-  <%= link_to 'Back', api_v1_user_tasks_path(current_user.id) %>
-</div>
+
+<%= render 'form', task: @task %>
+
+<%= link_to 'Show', @task %> |
+<%= link_to 'Back', api_v1_user_tasks_path(current_user.id) %>

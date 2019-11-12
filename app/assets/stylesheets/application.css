@@ -53,10 +53,7 @@
   border-radius: 2px;
   box-shadow: 2px 1px 5px 2px #2f73eb;
  }
-.forms {
-  margin-left: 50%;
-  margin-right: 30%;
-}
+
  footer {
    grid-area: footer;
    background-color: #2f73eb;

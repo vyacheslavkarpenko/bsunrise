@@ -13,6 +13,7 @@ module Api
         @parent_id = Task.find(params[:id]).parent_task_id 
         @parent_id.present? ? nil : @parent_id
         @chats = set_task.chats
+        # binding.pry
 
       end
 
