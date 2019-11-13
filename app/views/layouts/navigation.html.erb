@@ -1,0 +1,5 @@
+<div class="navigation">
+  <%= link_to  'sign in', new_user_session_path unless current_user %>
+  <%= link_to  'sign out', destroy_user_session_path, method: :delete if current_user %>
+  <%= link_to 'tasks', api_v1_user_tasks_path(current_user) if current_user %>
+</div>

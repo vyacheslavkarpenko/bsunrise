@@ -22,18 +22,14 @@
 
 header {
   grid-area: header;
-  background-color: #2f73eb;
+  background-color: #00a0fa;
   width: 100%;
   height: 100px;
-  box-shadow: 2px 1px 5px 2px #2f73eb;
+  /* box-shadow: 2px 1px 5px 2px #00a0fa; */
 }
 
 main {
   grid-area: main;
-  border: solid 1px;
-  border-color: antiquewhite;
-  border-radius: 2px;
-  box-shadow: 2px 1px 5px 2px #2f73eb;
   text-align: center;
   
   display: grid;
@@ -42,7 +38,14 @@ main {
     'subtasks chat ';
     grid-gap: 10px;
     padding: 2px;
+}
 
+footer {
+  grid-area: footer;
+  background-color: #00a0fa;
+  width: 100%;
+  height: 50px;
+  /* box-shadow: 2px 1px 5px 2px #00a0fa; */
 }
 
 .tasks-index {
@@ -70,6 +73,13 @@ main {
   grid-row-end: 3;
 }
 
+.describe_task {
+  border: solid 1px;
+  height: auto;
+  border-color: antiquewhite;
+  border-radius: 2px;
+  box-shadow: 2px 1px 5px 2px #cbe2ff;
+}
 
 .subtasks {
   grid-area: subtasks;
@@ -77,24 +87,31 @@ main {
   height: auto;
   border-color: antiquewhite;
   border-radius: 2px;
-  box-shadow: 2px 1px 5px 2px #2f73eb;
+  box-shadow: 2px 1px 5px 2px #cbe2ff;
 }
 
 .chat{
+  width: 100%;
   grid-area: chat;
   border: solid 1px;
   height: auto;
   border-color: antiquewhite;
   border-radius: 2px;
-  box-shadow: 2px 1px 5px 2px #2f73eb;
+  box-shadow: 2px 1px 5px 2px #cbe2ff;
  }
 
- footer {
-   grid-area: footer;
-   background-color: #2f73eb;
-   width: 100%;
-   height: 50px;
-   box-shadow: 2px 1px 5px 2px #2f73eb;
+ .navigation {
+  margin-left: 93%;
+  margin-top: 1%;
+ }
+ .navigation a {
+   margin: 2px;
+  background-color: aliceblue;
+  padding: 5px;
+ }
+ .navigation a:hover {
+  background-color: #2277f0;
+  padding: 5px;
  }
 
  body {
