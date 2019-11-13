@@ -20,7 +20,7 @@
   margin: auto;
 }
 
-.header {
+header {
   grid-area: header;
   background-color: #2f73eb;
   width: 100%;
@@ -28,13 +28,48 @@
   box-shadow: 2px 1px 5px 2px #2f73eb;
 }
 
-.describe_task {
-  grid-area: describe_task;
+main {
+  grid-area: main;
   border: solid 1px;
   border-color: antiquewhite;
   border-radius: 2px;
   box-shadow: 2px 1px 5px 2px #2f73eb;
+  text-align: center;
+  
+  display: grid;
+  grid-template-areas:
+    'main chat'
+    'subtasks chat ';
+    grid-gap: 10px;
+    padding: 2px;
+
 }
+
+.tasks-index {
+  display: grid;
+  width: 40%;
+  margin-left: 30%;
+  margin-right: 30%;
+  grid-column-start: 1;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 3;
+
+}
+
+.single-frame {
+  display: grid;
+  width: 40%;
+  margin-left: 30%;
+  margin-right: 30%;
+  grid-column-start: 1;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 3;
+}
+
 
 .subtasks {
   grid-area: subtasks;
@@ -62,21 +97,15 @@
    box-shadow: 2px 1px 5px 2px #2f73eb;
  }
 
- .wrapper {
+ body {
   display: grid;
   grid-template-areas:
-    'header header'
-    'describe_task chat'
-    'subtasks chat'
-    'footer footer';
+    'header'
+    'main'
+    'footer';
   grid-gap: 10px;
   padding: 2px;
   min-height: 100%;
   grid-template-rows: auto 1fr auto;
   margin: auto;
-}
-
-.wrapper > div {
-  text-align: center;
-  padding: 20px 0;
 }

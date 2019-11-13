@@ -91,6 +91,9 @@ module Api
         end
       end
 
+      def dude
+        @dude = 'dude'
+      end
       private
 
       def set_task
