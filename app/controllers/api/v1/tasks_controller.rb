@@ -8,6 +8,7 @@ module Api
       end
 
       def show
+        a
         set_task
         @child_task = Task.where(parent_task_id: @task.id)
         @parent_id = Task.find(params[:id]).parent_task_id 
@@ -89,6 +90,14 @@ module Api
             format.json { render json: {notice: 'Remove subtasks before.'} }
           end
         end
+      end
+
+      def a
+        b
+      end
+
+      def b
+        puts "debug"
       end
 
       def dude

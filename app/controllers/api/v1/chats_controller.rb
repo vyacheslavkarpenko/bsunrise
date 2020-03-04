@@ -5,9 +5,9 @@ module Api
 
       # GET /chats
       # GET /chats.json
-      # def index
-      #   @chats = Chat.all
-      # end
+      def index
+        @chats = Chat.all
+      end
 
       # GET /chats/1
       # GET /chats/1.json
