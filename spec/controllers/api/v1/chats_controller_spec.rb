@@ -33,7 +33,7 @@ describe Api::V1::ChatsController do
   describe '#index' do
     it 'returns correct data' do
       user
-# binding.pry
+binding.pry
       
       get :index, params: { user_id: '1', task_id: '1' }
 
