@@ -40,7 +40,10 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem 'pry'
   gem 'rspec-rails'
-  gem 'factory_bot'
+
+  gem 'factory_bot_rails'
+  gem 'database_cleaner-mongoid'
+  # gem 'simplecov', require: false, group: :test
 end
 
 group :development do
