@@ -5,7 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'mongoid', '~> 6.2.0'
+gem 'mongoid'
 gem 'devise'
 gem 'activemodel'
 

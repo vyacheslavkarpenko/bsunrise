@@ -15,9 +15,13 @@
       </td>
     </tr>
       <tr>
-        <td><%= link_to 'Show', api_v1_user_task_chat_path(current_user, @task, chat) %></td>
+        <%
+=begin%>
+ <td><%= link_to 'Show', api_v1_user_task_chat_path(current_user, @task, chat) %></td>
         <td><%= link_to 'Edit', edit_api_v1_user_task_chat_path(current_user, @task, chat) %></td>
-        <td><%= link_to 'Destroy', api_v1_user_task_chat_path(current_user, @task, chat), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', api_v1_user_task_chat_path(current_user, @task, chat), method: :delete, data: { confirm: 'Are you sure?' } %></td> 
+<%
+=end%>
       </tr>
     <% end %>
   </tbody>
@@ -25,4 +29,8 @@
 
 <br>
 
-<%= link_to 'New Chat', new_api_v1_user_task_chat_path(current_user, @task) %>
+<%
+=begin%>
+ <%= link_to 'New Chat', new_api_v1_user_task_chat_path(current_user, @task) %> 
+<%
+=end%>
